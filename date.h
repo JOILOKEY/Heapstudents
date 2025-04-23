@@ -12,7 +12,7 @@ private:
 public:
     Date();  
     Date(int m, int d, int y);  
-    void init(const std::string& dateStr); //  Format: "MM/DD/YYYY"
+    void init(const std::string& dateStr);
     void printDate() const;
 };
 

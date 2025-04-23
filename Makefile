@@ -20,8 +20,7 @@ run: $(EXEC)
 debug: $(EXEC)
 	gdb $(EXEC)
 
-valgrind: $(EXEC)
-	valgrind ./$(EXEC)
+
 
 clean:
 	rm -f *.o $(EXEC)
