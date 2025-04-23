@@ -6,13 +6,17 @@
 class Address {
 private:
     std::string street;
+    std::string apt;
     std::string city;
     std::string state;
-    std::string zip;
+    int zip;
 
 public:
-    Address(); 
-    void init(const std::string& st, const std::string& c, const std::string& s, const std::string& z);
+    Address();
+    Address(const std::string& street, const std::string& apt, const std::string& city, const std::string& state, int zip);
+
+    void init(const std::string& street, const std::string& city, const std::string& state, int zip);
+
     void printAddress() const;
 };
 

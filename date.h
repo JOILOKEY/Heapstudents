@@ -10,10 +10,13 @@ private:
     int year;
 
 public:
-    Date(); 
-    void init(const std::string& dateStr); // mm/dd/yyyy
+    Date();  
+    Date(int m, int d, int y);  
+    void init(const std::string& dateStr); //  Format: "MM/DD/YYYY"
     void printDate() const;
 };
 
 #endif
+
+
 

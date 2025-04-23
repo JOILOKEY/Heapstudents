@@ -1,26 +1,37 @@
 #include <iostream>
 #include "address.h"
 #include "date.h"
+#include "student.h"
 
-void testAddress();
-void testDate();
+void testStudent();
 
 int main() {
     std::cout << "Hello!" << std::endl;
-    testAddress();
-    testDate();
+
+    Date today;
+    today.init("01/27/1997");
+    today.printDate();
+
+    Address addr1;
+    addr1.init("123 W Main St", "Muncie", "IN", 47303);
+    addr1.printAddress();
+
+    testStudent();
+
     return 0;
 }
 
-void testAddress() {
-    Address a;
-    a.init("123 W Main St", "Muncie", "IN", "47303");
-    a.printAddress();
-}
+void testStudent() {
+    Address addr;
+    addr.init("32181 Johnson Course Apt. 389", "New Jamesside", "IN", 59379);
 
-void testDate() {
-    Date d;
-    d.init("01/27/1997");
-    d.printDate();
+    Date dob;
+    dob.init("02/17/2004");
+
+    Date grad;
+    grad.init("05/15/2027");
+
+    Student student("Danielle", "Johnson", addr, dob, grad, 65);
+    student.printStudent();
 }
 
