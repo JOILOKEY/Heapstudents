@@ -10,7 +10,7 @@ I add some extra rules like -Wall so it shows me all the little mistakes and war
 
 List all my files
 
-I put all my .cpp files in a list. These are the files I wrote for different parts of the program—like one for the student class, one for dates, one for addresses, and the main one that runs everything.
+I put all my .cpp files in a list. These are the files I wrote for different parts of the program like one for the student class, one for dates, one for addresses, and the main one that runs everything.
 
 Prepare object files
 
@@ -22,7 +22,7 @@ I give the finished program a name. In this case, it’s called student_data, so
 
 Set the default thing to do
 
-I say “when I type make with nothing else, go ahead and build that final program.” That’s what the all: part does—it just builds the program.
+I say “when I type make with nothing else, go ahead and build that final program.” That’s what the all: part does it just builds the program.
 
 Put it all together
 
