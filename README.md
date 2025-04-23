@@ -1,34 +1,35 @@
 **Heap of Students part 1** 
 
-First, we tell the computer what compiler we’re using.
+Pick the compiler
+I tell the computer that I'm using g++, which is what we use to turn our .cpp files into something that can actually run.
 
-We're using g++, which is the standard C++ compiler. That’s what the CXX = g++ line means.
+Set up compiler rules
+I add some extra rules like -Wall so it shows me all the little mistakes and warnings, and I tell it to use C++11 so it understands the code I’m writing.
 
-Then we set up how strict we want the compiler to be.
+List all my files
+I put all my .cpp files in a list. These are the files I wrote for different parts of the program—like one for the student class, one for dates, one for addresses, and the main one that runs everything.
 
-The line CXXFLAGS = -Wall -std=c++11 means we want all warnings to show up (that’s the -Wall) and we want to use the C++11 version of the language.
+Prepare object files
+The next step is saying, “Hey, for each of those files, turn them into an object file.” These object files are like halfway to the final program they’re compiled but not all put together yet.
 
-Next, we list all the C++ files we’re working with.
+Name the final program
+I give the finished program a name. In this case, it’s called student_data, so when it builds, that’s the file I’ll run.
 
-That’s what SRC = main.cpp address.cpp date.cpp student.cpp is doing — it’s saying "hey, these are all the code files I need to build the program."
+Set the default thing to do
+I say “when I type make with nothing else, go ahead and build that final program.” That’s what the all: part does—it just builds the program.
 
-We also tell it to make .o files from those source files.
+Put it all together
+I tell it: “Once you’ve got all those object files done, combine them and make my finished program.” That’s how I get something I can actually run.
 
-So it converts each .cpp into a .o file, which is like a halfway-compiled version. That’s what OBJ = $(SRC:.cpp=.o) does.
+Explain how to compile each file
+I add a rule that just explains how to turn a .cpp file into its .o version. It’s kind of like saying “do this same process every time you see a .cpp file.”
 
-We give the program a name.
+Make it runnable
+I add a shortcut called run so if I type make run, it just runs the finished program.
 
-That’s EXEC = student_data, so when everything is compiled and ready, the program you run will be called student_data.
+Make it debuggable
+I add another shortcut called debug. This lets me open the program in the debugger tool if I want to check what’s going on when it runs.
 
-The all rule builds everything.
-
-The all: $(EXEC) line tells the make system that the goal is to make that final program using all the object files.
-
-Then it says how to actually build the program.
-
-The $(EXEC): $(OBJ) part is saying “link all the object files together and make the final program.” It uses g++ with the same flags to do that.
-
-The %.o: %.cpp line tells how to make each object file from its matching source file.
-
-It’s like saying, “every time you see a .cpp file, compile it into a .o using the flags we set.”
+Clean up old files
+Finally, I add a clean option. This is just for when I want to start fresh and delete all the files that got created from compiling. That way I don’t have old stuff getting in the way.
 
