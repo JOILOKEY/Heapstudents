@@ -1,46 +1,47 @@
-**Heap of Students part 1** 
+**Heap of Students part 2** 
 
-**Pick the compiler**
+This is a C++ program that reads a list of students from a CSV file and lets the user interact with that data through a menu. The student information includes things like name, address, date of birth, graduation date, and number of credits. The program uses multiple C++ files and object-oriented programming (OOP) to keep everything organized.
 
-I tell the computer that I'm using g++, which is what we use to turn our .cpp files into something that can actually run.
+**Main Goal of the Program**
+The main goal is to help the user:
 
-**Set up compiler rules**
+See a list of student names.
 
-I add some extra rules like -Wall so it shows me all the little mistakes and warnings, and I tell it to use C++11 so it understands the code I’m writing.
+View full information about each student.
 
-**List all my files**
+Search for students by last name.
 
-I put all my .cpp files in a list. These are the files I wrote for different parts of the program like one for the student class, one for dates, one for addresses, and the main one that runs everything.
+Exit the program when finished.
 
-**Prepare object files**
+**How the Program is Built**
+The program is split into several files, each doing a specific job. This helps keep the code neat and easier to manage. Here’s how it’s structured:
 
-The next step is saying, “Hey, for each of those files, turn them into an object file.” These object files are like halfway to the final program they’re compiled but not all put together yet.
+Address class – This part is responsible for holding and displaying the student’s street, city, state, and ZIP code.
 
-**Name the final program**
+Date class – This class stores a month, day, and year. It’s used for things like birth dates and graduation dates.
 
-I give the finished program a name. In this case, it’s called student_data, so when it builds, that’s the file I’ll run.
+Student class – This is the big one. It puts everything together (name, address, dates, and credits) and can display all of a student’s info.
 
-**Set the default thing to do**
+main.cpp – This is where the action happens. It brings all the pieces together and interacts with the user.
 
-I say “when I type make with nothing else, go ahead and build that final program.” That’s what the all: part does it just builds the program.
+ **Where does the data come from?**
+All the student data comes from a file named student.csv. The file stores all the students in one big list, with each student on a single line. The program reads each line and splits it into pieces like first name, last name, street address, etc.
 
-**Put it all together**
+**Run the program**
+When the program starts, it automatically reads all the students from the file and stores them in memory.
 
-I tell it: “Once you’ve got all those object files done, combine them and make my finished program.” That’s how I get something I can actually run.
+Then, it shows a menu that lets you pick what you want to do.
 
-**Explain how to compile each file**
+If you choose to print all student names, it shows each student’s last name and first name.
 
-I add a rule that just explains how to turn a .cpp file into its .o version. It’s kind of like saying “do this same process every time you see a .cpp file.”
+If you choose to see all student data, it prints everything about every student.
 
-**Add a Valgrind shortcut for memory checking**
+If you choose to search, the program asks for a last name and shows anyone with a matching name.
 
-Since we have to use Valgrind, I made a target called valgrind. This will run my program with Valgrind so it can check for memory leaks or memory errors. Super helpful for making sure I’m cleaning up memory right
+If you choose to quit, the program deletes the student data from memory and exits.
 
-**Make it debuggable**
+**How does it keep the program clean?**
+This program creates objects on the heap (meaning in memory), so it’s important to delete them when you're done. That’s why at the end, the program cleans up all the memory it used.
 
-I add another shortcut called debug. This lets me open the program in the debugger tool if I want to check what’s going on when it runs.
-
-**Clean up old files**
-
-Finally, I add a clean option. This is just for when I want to start fresh and delete all the files that got created from compiling. That way I don’t have old stuff getting in the way.
-
+**How is it built**
+It uses a Makefile, which is like a set of instructions to build and run the program with one simple command (make). This keeps everything easier than typing long commands each time.
