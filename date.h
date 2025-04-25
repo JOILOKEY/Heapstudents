@@ -2,6 +2,7 @@
 #define DATE_H
 
 #include <string>
+using namespace std;
 
 class Date {
 private:
@@ -10,9 +11,7 @@ private:
     int year;
 
 public:
-    Date();  
-    Date(int m, int d, int y);  
-    void init(const std::string& dateStr);
+    void init(string mmddyyyy);  
     void printDate() const;
 };
 

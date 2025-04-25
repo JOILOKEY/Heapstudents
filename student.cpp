@@ -1,19 +1,31 @@
 #include "student.h"
 #include <iostream>
 
-Student::Student(std::string firstName, std::string lastName, Address address, Date dob, Date start, int credits)
-    : firstName(firstName), lastName(lastName), address(address), dateOfBirth(dob), startDate(start), creditHours(credits) {}
+using namespace std;
+
+Student::Student(string fName, string lName, Address addr, Date dob, Date grad, int credits)
+    : firstName(fName), lastName(lName), address(addr), birthDate(dob), gradDate(grad), creditHours(credits) {}
 
 void Student::printStudent() const {
-    std::cout << firstName << " " << lastName << std::endl;
+    cout << firstName << " " << lastName << endl;
     address.printAddress();
-    std::cout << "DOB: ";
-    dateOfBirth.printDate();
-    std::cout << "Grad: ";
-    startDate.printDate();
-    std::cout << "Credits: " << creditHours << std::endl;
-    std::cout << "____________________________________" << std::endl;
-    std::cout << lastName << ", " << firstName << std::endl;
+    cout << "DOB: ";
+    birthDate.printDate();
+    cout << "Grad: ";
+    gradDate.printDate();
+    cout << "Credits: " << creditHours << endl;
+    cout << "____________________________________" << endl;
 }
 
+string Student::getFullName() const {
+    return lastName + ", " + firstName;
+}
+
+string Student::getLastName() const {
+    return lastName;
+}
+
+int Student::getCreditHours() const {
+    return creditHours;
+}
 

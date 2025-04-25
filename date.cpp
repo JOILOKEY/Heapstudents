@@ -1,24 +1,29 @@
-#include "date.h"
+// date.cpp
 #include <iostream>
-#include <sstream> 
+#include <sstream>
+#include "date.h"
 
-Date::Date() : month(0), day(0), year(0) {}
+using namespace std;
 
-Date::Date(int m, int d, int y) : month(m), day(d), year(y) {}
+void Date::init(string mmddyyyy) {
+    
+    stringstream ss(mmddyyyy);
+    string temp;
 
-void Date::init(const std::string& dateStr) {
-    char slash;
-    std::istringstream iss(dateStr);
-    iss >> month >> slash >> day >> slash >> year;
+    getline(ss, temp, '/');
+    month = stoi(temp);
+    getline(ss, temp, '/');
+    day = stoi(temp);
+    getline(ss, temp);
+    year = stoi(temp);
 }
 
 void Date::printDate() const {
-    const std::string months[] = { "January", "February", "March", "April", "May",
-            "June", "July", "August", "September", "October", "November", "December" };
+    static const string months[] = {
+        "", "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    };
 
-    if (month >= 1 && month <= 12)
-        std::cout << months[month - 1] << " " << day << ", " << year << std::endl;
-    else
-        std::cout << "Invalid date" << std::endl;
+    cout << months[month] << " " << day << ", " << year << endl;
 }
 

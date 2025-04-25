@@ -2,21 +2,17 @@
 #define ADDRESS_H
 
 #include <string>
+using namespace std;
 
 class Address {
 private:
-    std::string street;
-    std::string apt;
-    std::string city;
-    std::string state;
+    string street;
+    string city;
+    string state;
     int zip;
 
 public:
-    Address();
-    Address(const std::string& street, const std::string& apt, const std::string& city, const std::string& state, int zip);
-
-    void init(const std::string& street, const std::string& city, const std::string& state, int zip);
-
+    void init(string st, string c, string s, int z);
     void printAddress() const;
 };
 

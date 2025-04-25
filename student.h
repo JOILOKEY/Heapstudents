@@ -1,22 +1,26 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <string>
 #include "address.h"
 #include "date.h"
+#include <string>
+using namespace std;
 
 class Student {
 private:
-    std::string firstName;
-    std::string lastName;
+    string firstName;
+    string lastName;
     Address address;
-    Date dateOfBirth;
-    Date startDate;
+    Date birthDate;
+    Date gradDate;
     int creditHours;
 
 public:
-    Student(std::string firstName, std::string lastName, Address address, Date dob, Date startDate, int credits);
+    Student(string fName, string lName, Address addr, Date dob, Date grad, int credits);
     void printStudent() const;
+    string getFullName() const;
+    string getLastName() const;
+    int getCreditHours() const;
 };
 
 #endif
