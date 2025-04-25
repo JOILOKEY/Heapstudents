@@ -1,4 +1,3 @@
-// date.cpp
 #include <iostream>
 #include <sstream>
 #include "date.h"
