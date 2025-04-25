@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 void loadStudents(vector<Student*>& students);
 void showStudentNames(const vector<Student*>& students);
 void printStudents(const vector<Student*>& students);
@@ -18,10 +17,10 @@ string menu();
 
 int main() {
     vector<Student*> students;
-
     loadStudents(students);  
-    string choice;
-    do {
+
+    string choice = "";
+    while (choice != "0") {
         choice = menu();
 
         if (choice == "1") {
@@ -31,21 +30,18 @@ int main() {
         } else if (choice == "3") {
             findStudent(students);
         }
-
-    } while (choice != "0");
+    }
 
     deleteStudents(students);
     return 0;
 }
-
-
 
 void loadStudents(vector<Student*>& students) {
     ifstream file("student.csv");
     string line;
 
     while (getline(file, line)) {
-       if (line.empty()) continue; 
+        if (line.empty()) continue; 
         stringstream ss(line);
         string fName, lName, street, city, state, zipStr, dobStr, gradStr, creditsStr;
 
@@ -58,8 +54,8 @@ void loadStudents(vector<Student*>& students) {
         getline(ss, dobStr, ',');
         getline(ss, gradStr, ',');
         getline(ss, creditsStr, ',');
-	
-	cout << "DEBUG: zipStr = '" << zipStr << "', creditsStr = '" << creditsStr << "'" << endl;
+
+        cout << "DEBUG: zipStr = '" << zipStr << "', creditsStr = '" << creditsStr << "'" << endl;
 
         int zip = stoi(zipStr);
         int credits = stoi(creditsStr);
